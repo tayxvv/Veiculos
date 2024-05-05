@@ -1,0 +1,88 @@
+@model List<Veiculo>
+@{
+    ViewData["Title"] = "Veiculo";
+}
+<h1> Lista de Contatos </h1>
+<p>
+    <a asp-action="Veiculo">Novo</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+           <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().Placa)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().Chassis)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().Tipo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().AnoFabricacao)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().AnoModelo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().Nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().Marca)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().Potencia)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().DataDeCompra)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().Estado)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(Veiculo item in Model)
+        {
+            <tr>
+               <td>
+                    @Html.DisplayFor(modelItem => item.Placa)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Chassis)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Tipo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AnoFabricacao)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AnoModelo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nome)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Marca)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Potencia)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DataDeCompra)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Estado)
+                </td>
+                <td>
+                    <a asp-action="Veiculo" asp-route-id="@item.Id">Editar</a>
+                </td>
+                 <td>
+                    <a asp-action="Apagar" asp-route-id="@item.Id">Apagar</a>
+                </td>
+
+            </tr>
+        }
+    </tbody>
+</table>

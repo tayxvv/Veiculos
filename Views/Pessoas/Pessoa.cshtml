@@ -1,0 +1,66 @@
+@model veiculos.Models.ViewModel.PessoaViewModel
+
+@{
+ViewData["Title"] = "Pessoa";
+}
+<h1 class="display-4">Pessoa</h1>
+<h4>Cadastro</h4>
+<div class="row">
+    <div class="col-md-4">
+        @* @ViewData["mensagem"] *@
+        <form asp-action="Pessoa" asp-controller="Pessoas" enctype="multipart/form-data">
+            <div class="form-group">
+                @Html.LabelFor(model => model.Nome)
+                @Html.TextBoxFor(model => model.Nome, new {@class="form-control"})
+                @Html.ValidationMessageFor(model => model.Nome)
+            </div>
+            <div class="form-group">
+                <!-- anotações -->
+                @Html.LabelFor(model => model.Idade)
+                @Html.TextBoxFor(model => model.Idade, new {@class="form-control"})
+                @Html.ValidationMessageFor(model => model.Idade)
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.Sobrenome)
+                @Html.TextBoxFor(model => model.Sobrenome, new {@class="form-control"})
+                @Html.ValidationMessageFor(model => model.Sobrenome)
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.Endereco)
+                @Html.TextBoxFor(model => model.Endereco, new {@class="form-control"})
+                @Html.ValidationMessageFor(model => model.Endereco)
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.Cidade)
+                @Html.TextBoxFor(model => model.Cidade, new {@class="form-control"})
+                @Html.ValidationMessageFor(model => model.Cidade)
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.CPF)
+                @Html.TextBoxFor(model => model.CPF, new {@class="form-control"})
+                @Html.ValidationMessageFor(model => model.CPF)
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.Telefone)
+                @Html.TextBoxFor(model => model.Telefone, new {@class="form-control"})
+                @Html.ValidationMessageFor(model => model.Telefone)
+            </div>
+
+            @* <div class="form-group">
+                <label for="Produtos">Produtos</label>
+                @Html.ListBox("ProdutosId", ViewBag.Produto, new {@class="select-control"})
+            </div> *@
+
+            <div class="form-group">
+                <label for="Veiculos">Veiculos</label>
+                @Html.ListBox("VeiculosId", ViewBag.Veiculo, new {@class="select-control"})
+            </div>
+
+            <div class="form-group">
+                @Html.Label("Imagem")
+                <input type="file" id="anexo" name="anexo">
+            </div>
+            <input type="submit" value="Salvar" class="btn btn-success" style="margin-top: 20px;" />
+        </form>
+    </div>
+</div>

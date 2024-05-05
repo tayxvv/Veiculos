@@ -1,0 +1,74 @@
+@model List<veiculos.Models.ViewModel.PessoaViewModel>
+@{
+    ViewData["Title"] = "Pessoa";
+}
+<h1> Lista de Contatos </h1>
+<p>
+    <a asp-action="Pessoa">Novo</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().Nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().Sobrenome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().Endereco)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().Cidade)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().CPF)
+            </th>
+             <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().Telefone)
+            </th>
+            <th>
+                Quantidade Veículos
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var item in Model)
+        {
+            <tr>
+               <td>
+                    @Html.DisplayFor(modelItem => item.Nome)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Sobrenome)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Endereco)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cidade)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CPF)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Telefone)
+                </td>
+                 <td>
+                    @Html.DisplayFor(modelItem => item.QuantidadeProdutosId)
+                </td>
+                <td>
+                    <a asp-action="Pessoa" asp-route-id="@item.Id">Editar</a>
+                </td>
+                 <td>
+                    <a asp-action="Apagar" asp-route-id="@item.Id">Apagar</a>
+                </td>
+                <td>
+                    @* <a asp-action="Listar" controllador="Produtos"asp-route-id="@item.Id">Quantidade</a> *@
+                    @Html.DisplayFor(modelItem => item.QuantidadeProdutosId)
+                </td>
+
+            </tr>
+        }
+    </tbody>
+</table>
